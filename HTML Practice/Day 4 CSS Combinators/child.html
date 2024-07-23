@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+text-align: center;
+    }
+    div>p{
+        background-color: green;
+        color: #b11616;
+    }
+    #notchild>p{
+        background-color: aqua;
+    }
+    span>p{
+        background-color: blueviolet;
+        color: azure;
+    }
+
+</style>
+<body>
+    <div>
+
+        <p>This is main Div p1</p>
+         
+    </div>
+
+    <div id="notchild">
+        <p>This is not main Div it contains class P2</p>
+        
+        <div> <p>this does not class P3</p></div>
+    </div>
+    <span><p> this is spanP4</p></span>
+    <span><p>This child works like it only verify the 1st child like you are son to your father it doe not bother about all the ancestors</p></span>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="FirstName">Bhargav</h3>
+    <div id="LastName">Kongara</div>
+    <p id="Location">Bengaluru</p>
+    <hr>
+    <p id="Output">The Output</p>
+    <hr>
+    <button onclick="FirstNameF()">FirstName</button>
+    <button onclick="LastNameF()">LastName</button>
+    <button onclick="FnLnF()">FirstName+LastName</button>
+    <button onclick="Loc()">Location</button>
+</body>
+</html>
+<script>
+   let FirstName=  document.getElementById("FirstName").innerText;
+   let LastName =  document.getElementById("LastName").innerText;
+   let Location =  document.getElementById("Location").innerText;
+   let Output=document.getElementById("Output").innerText;
+    function FirstNameF(){ 
+      
+      document.getElementById("Output").innerText=FirstName;
+
+    }
+    function LastNameF(){
+      
+      document.getElementById("Output").innerText=LastName;
+
+    }
+    
+    function FnLnF(){
+      
+      document.getElementById("Output").innerText=FirstName + " " + LastName;
+
+    }
+     
+    function Loc(){
+      
+      document.getElementById("Output").innerText=Location;
+
+    }
+    
+</script>

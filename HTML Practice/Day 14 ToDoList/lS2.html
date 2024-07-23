@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>About localStorage</h1>
+    <p>We can access this from browser--> inspect --> application --> localStorage</p>
+    <p>is contains keys and values</p>
+    <p> we have 4 types here</p>
+    <p>setItem,getItem
+        <p>json.Stringfy, JSON.parse</p>
+        <p>We can store only numbers and strings we cant store directly any other datatypes </p>
+        <p>For that we use json.Stringfy, JSON.parse</p>
+    </p>
+
+
+</body>
+</html>
+<script>
+localStorage.setItem("Name", "Bhargav")
+localStorage.setItem("age",23);
+
+
+
+
+ let array=[1,2,3,45,66,7];
+  localStorage.setItem("data",JSON.stringify(array));
+
+  let data=JSON.parse(localStorage.getItem("data"));
+  console.log(data);
+
+
+
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./commonstyle.css">
+</head>
+<body>
+    <div id="links">
+        <div><a href="./App.html"><h1>Home</h1></a></div>
+        <div><a href="./Applied.html"><h1>Applied Jobs</h1></a></div>
+        <div><a href="./Bookmarks.html"><h1>Bookmark</h1></a></div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Job applied</th>
+                <th>Salary</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+        </tbody>
+    </table>
+
+    <script>
+        // Retrieve bookmarks from localStorage
+        let Data = JSON.parse(localStorage.getItem("bookmarks")) || [];
+        let tbody = document.getElementById("body");
+
+        function displayData() {
+            tbody.innerHTML = ""; // Clear tbody content
+
+            Data.forEach((element, index) => {
+                let tr = document.createElement("tr");
+
+                let name = document.createElement("td");
+                name.textContent = element.name;
+
+                let email = document.createElement("td");
+                email.textContent = element.email;
+
+                let role = document.createElement("td");
+                role.textContent = element.role;
+
+                let salary = document.createElement("td");
+                salary.textContent = element.salary;
+
+                let remove = document.createElement("td");
+                let removeButton = document.createElement("button");
+                removeButton.textContent = "DELETE";
+
+                // Add event listener to deleteButton
+                removeButton.addEventListener("click", () => {
+                    deleteItem(index); // Pass index to deleteItem function
+                });
+
+                remove.appendChild(removeButton);
+
+                let bookmark = document.createElement("td");
+                let bookmarkButton = document.createElement("button");
+               
+                bookmarkButton.addEventListener("click", () => {
+                    bookmarkFun(element);
+                });
+                bookmark.appendChild(bookmarkButton);
+
+                tr.appendChild(name);
+                tr.appendChild(email);
+                tr.appendChild(role);
+                tr.appendChild(salary);
+                tr.appendChild(remove);
+
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deleteItem(index) {
+            Data.splice(index, 1); // Remove 1 item at the specified index from Data array
+            localStorage.setItem("bookmarks", JSON.stringify(Data)); // Update localStorage with the modified Data array
+            displayData(); 
+            window.location.reload();// Refresh the displayed data after deletion
+        }
+
+        
+
+        displayData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    localStorage.setItem("name","Bhargav");
+    localStorage.setItem("Age",24);
+
+    console.log((localStorage.getItem("age")));
+
+    let array = [1, 2, 3, 4, 5];
+
+// Step 1: Incorrect JSON.stringify usage
+let data = JSON.stringify("array");
+// JSON.stringify should be used with objects or arrays, not strings
+
+// Step 2: Incorrect JSON.parse usage
+// You should parse the actual array variable, not the string "array"
+// Also, there's a typo "confirm.log", it should be console.log
+
+// Correcting the code:
+let jsonData = JSON.stringify(array);  // Converts array to JSON string
+console.log(jsonData);  // Logs: "[1,2,3,4,5]"
+
+let parsedArray = JSON.parse(jsonData);  // Parses JSON string back to array
+console.log(parsedArray);  // Logs: [1, 2, 3, 4, 5]
+
+</script>

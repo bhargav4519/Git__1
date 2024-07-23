@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+
+        <input type="text" placeholder="Name">
+        <input type="number" placeholder="age" id="age">
+        <input type="submit">
+    
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit" , submitFn)
+
+    function submitFn(){
+        let name=querySelector("input").value;
+        let age=querySelector("#age").value;
+        console.log(name,age);
+    }
+</script>

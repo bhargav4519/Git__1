@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://127.0.0.1:5500/Day%2013%20DOM5/box.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+</head>
+<body>
+    <div id="create">
+        <h1>Add Products</h1>
+        <form id="form">
+            <input type="text" placeholder="ProductName" id="pName">
+            <select id="category">
+                <option value="">Category</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Mobiles">Mobiles</option>
+                <option value="Fashion">Fashion</option>
+                <option value="HomeApplications">HomeApplications</option>
+                <option value="ChildrenSection">ChildrenSection</option>
+
+                
+            </select> 
+            <input type="text" id="brand" placeholder="Brand">
+            <input type="number" id="price" placeholder="price">
+            <select id="deliveryBy">
+                <option value="">DeliveredBy</option>
+                <option value="Zepto">Zepto</option>
+                <option value="BlueDart">BlueDart</option>
+                <option value="Expressbee">Bee</option>
+            </select>
+            <input type="submit">
+        </form>
+
+    </div>
+    <h3 id="total-price">Total Price - 0</h3>
+    <table border="2" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>DeliveredBy</th>
+                <th>Delete</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<script>
+    document.querySelector("#form").addEventListener("submit",submitForm);
+    let totalPrice=0;
+    let array=[];
+    function submitForm(){
+        event.preventDefault();
+
+        let object={
+            pName:document.querySelector("#pName").value,
+            pCategory:document.querySelector("#category").value,
+            pBrand:document.querySelector("#brand").value,
+            pPrice:document.querySelector("#price").value,
+            pDelivery:document.querySelector("deliveryBy").value,
+
+        }
+        array.push(object);
+        document.querySelector("tbody").innerHTML="";
+        array.map(function(element){
+            let tr= document.createElement("tr")
+            let td1=document.createElement("td")
+            let td2=document.createElement("td")
+            let td3=document.createElement("td")
+            let td4=document.createElement("td")
+            let td5=document.createElement("td")
+            let td6=document.createElement("td")
+            td1.innerText=element.pName
+            td2.innerText=element.pCategory
+            td3.innerText=element.pBrand
+            td4.innerText=element.pPrice
+            td5.innerText=element.pDelivery
+            td6.innerText="Delete"
+
+        tr.append(td1, td2, td3, td4, td5, td6);
+            document.querySelector("tbody").append(tr);
+
+
+        })
+    }
+
+</script></body></html>

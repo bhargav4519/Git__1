@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    let student1={
+        name:"Bhargav",
+        age:23
+    };
+
+    let student2={
+        name:"Vamsi",
+        age:23
+    };
+    let student3={
+        name:"Sairam",
+        age:23
+    };
+
+
+    function update(city,state){
+        this.city=city;
+        this.state=state;
+    }
+
+    update.call(student1,"AP","ATP");
+    console.log(student1)
+
+    update.apply(student2,["Chennai","TamilNadu"]);
+    console.log(student2);
+    
+    
+    let result=update.bind(student3,"Ohklahoma", "US")
+    result();
+    console.log(student3)
+</script>

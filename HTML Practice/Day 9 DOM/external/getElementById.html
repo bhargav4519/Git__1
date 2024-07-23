@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">This to get element from html to javaScript by using id selector</h1>
+    <button onclick="clicked()">Click</button>
+</body>
+</html>
+<script>
+    console.log( document.getElementById("heading"));
+    console.log( document.getElementById("heading").innerText);
+    console.log( document.getElementById("heading").textContent);
+    function clicked(){
+        console.log( document.getElementById("heading").innerText = "Updated Heading");
+        console.log( document.getElementById("heading").style="color:aqua; font-size:10px");
+        alert("The Heading will be updated");
+    }
+</script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>prototype</h1>
+    
+    <div><p>Today we are learning about prototype
+        basically for every datatype either number,boolean,string we have object as prototype
+        we can able to see the prototype of all this in below examples.</p></div>
+   
+
+   <p>And also we can create our own prototype see the below ex-prototype
+    <div>let prototype={
+        a:10,
+        b:60
+    }
+
+
+    let object2=Object.create(prototype);
+    object2.c=50;
+    console.log(object2)</div>
+   </p>
+</body>
+</html>
+<script>
+    let str1=new String("Bhargav");
+    let age= new Number(23);
+    let bool1=true;
+
+    console.log(str1);
+    console.log(age);
+    console.log(bool1);
+    console.log(str1.__proto__.__proto__);
+    console.log(age.__proto__.__proto__);
+    console.log(bool1.__proto__.__proto__);
+
+
+    let prototype={
+        a:10,
+        b:60
+    }
+
+
+    let object2=Object.create(prototype);
+    object2.c=50;
+    console.log(object2)
+
+
+
+</script>

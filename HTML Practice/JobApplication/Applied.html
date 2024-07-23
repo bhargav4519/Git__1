@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Jobs</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./commonstyle.css">
+</head>
+<body>
+    <div id="links">
+        <div><a href="./App.html"><h1>Home</h1></a></div>
+        <div><a href="./Applied.html"><h1>Applied Jobs</h1></a></div>
+        <div><a href="./Bookmarks.html"><h1>Bookmarks</h1></a></div>
+    </div>
+    <select id="sortSalary" onchange="handleSalarySort">
+        <option value="">sort by name</option>
+        <option value="HTL">HTL</option>
+        <option value="LTH">LTH</option>
+    </select>
+    <select name="" id="filterRole" onchange="handleFilter()">
+        <option value="">Category</option>
+        <option value="FSD">FSD</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">BackEnd</option>
+    </select>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Job applied</th>
+                <th>Salary</th>
+                <th>Add to Bookmark</th>
+
+            </tr>
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+let Data = JSON.parse(localStorage.getItem("jobApplication"));
+
+function handleFilter() {
+    // Get the selected value from the dropdown
+    let selectedRole = document.getElementById("filterRole").value;
+
+    // Filter the data based on the selected role
+    let filteredData = Data.filter(function(element) {
+        return element.role === selectedRole;
+    });
+
+    // Log the filtered data to the console (for debugging)
+    console.log(filteredData);
+
+    // Display the filtered data
+    displayData(filteredData);
+}
+
+function handleSalarySort(){
+    let selected = document.getElementById("sortSalary").value;
+
+    if (selected == "HTL"){
+        Data.sort(function(a,b){
+            return b.salary-a.salary;
+        })
+        displayData(Data);
+    }
+    else{
+        Data.sort(function(a,b){
+            return a.salary-b.salary;
+        })
+        displayData(Data);
+    }
+}
+
+    
+let tbody=document.querySelector("tbody");
+let bookmarkArray=JSON.parse(localStorage.getItem("bookmarks"))|| [];
+    displayData(Data)
+    
+    function displayData(){
+        document.querySelector("tbody").innerHTML="";
+
+
+        Data.forEach(element => {
+            let tr=document.createElement("tr");
+            let name = document.createElement("td");
+            let email=document.createElement("td");
+            let role=document.createElement("td");
+            let salary=document.createElement("td");
+
+
+            name.innerText=element.name;
+            email.innerText=element.email;
+            role.innerText=element.role;
+            salary.innerText=element.salary;
+
+            let bookmark=document.createElement("td");
+            bookmark.innerText="Bookmark";
+            bookmark.style="cursor:pointer"
+            bookmark.addEventListener("click", function(){
+                bookmarkFun(element)
+            })
+
+            tr.append(name,email,role,salary,bookmark);
+
+            tbody.append(tr);
+
+            
+        });
+
+        function bookmarkFun(element){
+            bookmarkArray.push(element);
+            localStorage.setItem("bookmarks", JSON.stringify(bookmarkArray));
+            window.location.reload();
+
+        }
+
+    }
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            background-color: aqua;
+            height: 100px;
+            width: 100px;
+        }
+        #p1 {
+            background-color: red;  
+        }
+        .p2 {
+            background-color: green; /* corrected class name */
+        }
+        #flexdirection {
+            border: 1px solid red;
+            height: 300px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: right;
+            
+            
+            align-items: flex-end;
+
+        }
+        p:nth-child(4) { /* corrected nth-child index */
+            background-color:yellow;
+        }
+        p:nth-child(6){
+            background-color: rgb(235, 13, 168);
+        }
+    </style>
+</head>
+<body>
+    <div id="flexdirection"> <!-- removed spaces around the equal sign -->
+        <p id="p1">p1</p>
+        <p class="p2">p2</p>
+
+        <p>p3</p>
+        <p>p4</p>
+        <p>p5</p>
+        <p>p6</p>
+        
+    </div>
+</body>
+</html>

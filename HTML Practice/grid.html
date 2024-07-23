@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        background-color: aqua;
+        padding: 20px;
+        display: grid;
+        
+       
+        grid-template-columns: repeat(5,100px);
+        grid-template-rows: repeat(7,100px);
+    }
+    #container>:nth-child(1){
+        background-color: azure;
+    }
+    #container>:nth-child(2){
+        background-color: bisque;
+    }
+    #container>:nth-child(3){
+        background-color: rgb(17, 244, 9);
+    }
+    #container>:nth-child(4){
+        background-color: rgb(173, 108, 29);
+    }
+   
+</style>
+<body>
+    <div id = "container">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        
+    </div>
+</body>
+</html>

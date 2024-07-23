@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Hi I am Bhargav</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt perspiciatis tempora deleniti at velit sit, vero corrupti doloremque temporibus. Pariatur quo quas in voluptates dolore eligendi quae. Ratione, earum quisquam!</p>
+    <div>This is Div 1</div>
+    <div>This is Div 2</div>
+    <div>This is Div 3</div>
+    <h3></h3>
+    
+</body>
+</html>
+<script>
+    let tagF = document.getElementsByTagName("div");
+    console.log(tagF);
+
+
+    for(i=0;i<tagF.length;i++){
+        console.log(tagF[i].innerText);
+    }
+
+    let tagP=document.getElementsByTagName("p");
+    console.log(tagP);
+    
+    let tagP2=document.getElementsByTagName("p");
+    console.log(tagP[0]);
+
+</script>
